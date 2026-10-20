@@ -26,7 +26,9 @@ jobs:
           python -m pip install playwright==1.63.0
           python -m playwright install --with-deps chromium firefox webkit
       - name: Run browser and feature-parity checks
-        run: python tests/ui_regression.py
+        run: |
+          python tests/ui_regression.py
+          python tests/completion_regression.py
       - name: Save source snapshot for visual review
         if: always()
         run: |

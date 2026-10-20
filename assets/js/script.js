@@ -85,7 +85,15 @@ CURSE_BUTTONS.forEach((button, index) => {
     section.style.display = 'block';
     const nextButton = CURSE_BUTTONS[index + 1] || buttonFinal;
     setDisabled(nextButton, false);
-    focusNext(nextButton);
+    if (index === 2 && window.HexCompletion) {
+      // Step 4 is the third phrase button. Reveal only after it succeeds.
+      window.HexCompletion.reveal(prepareFinalPhrase());
+      nextButton.focus({ preventScroll: true });
+      section.scrollIntoView({ block: section.offsetHeight <= innerHeight ? 'center' : 'end',
+        behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+    } else {
+      focusNext(nextButton);
+    }
   });
 });
 setDisabled(buttonFinal, true);
@@ -100,6 +108,7 @@ buttonFinal.addEventListener('click', () => {
   result.textContent = prepareFinalPhrase().join(' ');
   setDisabled(buttonFinal, true);
   document.querySelector('.sparkle-background').style.display = 'block';
+  if (window.HexCompletion) window.HexCompletion.markCast();
   document.getElementById('create-canvas').style.display = 'block';
   document.getElementById('refresh').style.display = 'block';
   result.tabIndex = -1;
@@ -124,6 +133,9 @@ async function drawOnMainCanvas(phrases) {
     // A blocked font service must not prevent an otherwise usable PNG.
     document.fonts ? document.fonts.load('28px "Irish Grover"').catch(() => []) : Promise.resolve()
   ]);
+  // Use the same personalised artwork as the Step 4 reveal. If its decorative
+  // frame cannot load, keep the original PNG renderer as a reliable fallback.
+  if (window.HexCompletion && await window.HexCompletion.renderShare(canvas, phrases, leprechaun)) return;
   const scale = window.devicePixelRatio || 1;
   const width = 600;
   const ctx = canvas.getContext('2d');

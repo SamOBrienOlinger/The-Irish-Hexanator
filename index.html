@@ -8,6 +8,7 @@
 <meta content="AN Irish Hex is a website all about having fun by randomly creating a humorous 'curse' on any name inserted. Designed and implemented by Sam O'Brien-Olinger" name="description"/>
 <meta content="History, Irish, Ireland, Leprechaun, Culture, Folklore, Magic, Dark Humour, comedic, supernatural, having fun" name="keywords"/>
 <link href="assets/css/refresh.css" rel="stylesheet"/>
+<link href="assets/css/completion.css" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
 </head>
 <body class="home-page">
@@ -53,9 +54,20 @@
 <button aria-label="The last part of your Hex" class="button curse-button disabled active-flicker" data-index="3" disabled id="thirdButton" type="button">Curse!</button>
 <output aria-atomic="true" aria-live="polite" class="output" id="thirdOutput"><b id="thirdResult"></b></output>
 </section>
-<section id="step5" style="display: none">
+<section id="step5" style="display: none" aria-labelledby="completion-heading">
+<h2 id="completion-heading">Your hex is ready to cast</h2>
+<p id="completion-instructions">One final click to unleash the mischief.</p>
+<div id="curse-reveal" class="hex-reveal" data-state="waiting" data-animation="idle">
+<div class="hex-reveal-scene" aria-hidden="true"></div>
+<div class="hex-reveal-aura" aria-hidden="true"></div>
+<img class="hex-reveal-mascot" src="assets/css/Images/angry-leprechaun-bg-free.png" alt="" width="155" height="170"/>
+<div id="hex-preview" class="hex-reveal-copy" aria-hidden="true">
+<span class="hex-reveal-name"></span><span></span><span></span><span></span>
+</div>
+<div aria-atomic="true" aria-live="polite" class="output hex-final-output" role="status"><div class="sparkle-background" style="display: none"><b id="finalResult"></b></div></div>
+<div class="hex-reveal-particles" aria-hidden="true"></div>
+</div>
 <button aria-label="Cast your Hex" class="disabled active-flicker" disabled id="finalButton" type="button"><b id="fullPhrase">Click Here - "Your Hex is Ready to be Cast"</b></button>
-<div aria-atomic="true" aria-live="polite" class="output" role="status"><div class="sparkle-background" style="display: none"><b id="finalResult"></b></div></div>
 </section>
 </main>
 <footer>
@@ -78,6 +90,7 @@
 <p>Just for the craic, Share your Hex and Tag your Favourite Nemesis!</p>
 <button aria-label="Back to the Top and create a new Hex" id="refresh" style="display: none" type="button"><b class="glow-text">There's still plenty of magic available. <br/>Click here to hex that eejit again, or choose a new victim...</b></button>
 </footer>
+<script src="assets/js/completion.js"></script>
 <script src="assets/js/script.js"></script>
 </body>
 </html>
