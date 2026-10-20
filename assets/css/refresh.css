@@ -1,0 +1,81 @@
+/* 2026 visual refresh. Pure CSS: all original IDs, content and JS flows remain. */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Fraunces:wght@600;700&display=swap');
+:root{color-scheme:dark;--bg:#071b16;--panel:#12372a;--line:#355747;--text:#f7f4e9;--muted:#c8d9ce;--gold:#f4c477;--mint:#8be1af}
+*,*:before,*:after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body,body#history-bg{margin:0;min-height:100vh;overflow-x:hidden;background:radial-gradient(ellipse at 50% 0%,#22513b,#0b281e 40%,#071b16 85%) fixed;color:var(--text);font:400 1rem/1.65 'DM Sans',sans-serif;text-align:center}
+h1,h2,h3{font-family:'Fraunces',Georgia,serif;line-height:1.2;letter-spacing:-.025em;text-shadow:none}
+h1{max-width:900px;margin:0 auto 18px;color:var(--text);font-size:clamp(2.6rem,6vw,5rem);text-wrap:balance}
+h2{color:var(--text);font-size:clamp(1.3rem,2.7vw,1.85rem)}
+h3{max-width:720px;margin:20px auto;color:var(--muted);font-size:clamp(1.15rem,2.5vw,1.55rem);text-shadow:none}
+p,footer p{color:var(--muted);font:400 clamp(1rem,1.6vw,1.13rem)/1.75 'DM Sans',sans-serif;text-shadow:none}
+a{color:var(--mint);text-underline-offset:.2em}
+a:hover{color:#d2ffe2}
+a:focus-visible,button:focus-visible,input:focus-visible,[tabindex]:focus-visible{outline:3px solid var(--gold);outline-offset:4px}
+.irish-flag-navbar{display:flex;gap:6px;width:min(calc(100% - 32px),1100px);margin:20px auto 0;padding:6px;border:1px solid var(--line);border-radius:100px;background:rgba(7,27,22,.88);box-shadow:0 10px 30px #0003;backdrop-filter:blur(14px)}
+.irish-flag-navbar .nav-section{height:auto;min-width:0;border-radius:100px;background:transparent}
+.irish-flag-navbar .nav-section a{display:flex;align-items:center;justify-content:center;min-height:50px;width:100%;padding:9px 12px;border-radius:100px;color:#ecf7ed;font:700 clamp(.75rem,1.4vw,1rem)/1.35 'DM Sans',sans-serif;text-decoration:none;transition:background .2s,color .2s}
+.irish-flag-navbar .nav-section a:hover,.irish-flag-navbar .nav-section a[aria-current=page]{background:var(--gold);color:#102719}
+.irish-flag-navbar .nav-section a div:has(img){display:none}
+body>section:first-of-type{max-width:960px;margin:65px auto 30px;padding:0 20px}
+body>section:first-of-type p{display:inline-block;margin:0;padding:6px 17px;border:1px solid #f4c47765;border-radius:100px;background:#f4c47714;color:var(--gold);font-size:.9rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+#guide,#history{height:clamp(210px,33vw,350px);max-width:760px;margin:20px auto;background-size:contain;filter:drop-shadow(0 16px 26px #0007);animation-duration:14s}
+.sections,#step5{width:min(calc(100% - 32px),760px);margin:20px auto;padding:clamp(22px,4vw,40px);border:1px solid var(--line);border-radius:22px;background:linear-gradient(145deg,#1b4935,#0d2d22);box-shadow:0 18px 50px #0004}
+.sections h2{max-width:640px;margin:0 auto 24px}
+.steps{color:var(--gold);font-family:'Fraunces',Georgia,serif;font-size:inherit;white-space:nowrap}
+.sections h2 span.steps img{width:24px;margin-right:8px}
+input#name{display:block;width:min(100%,500px);min-height:58px;margin:0 auto 18px;padding:14px 18px;border:1px solid #91b9a2;border-radius:14px;background:#071b16;color:white;font:500 1.1rem 'DM Sans',sans-serif;text-align:center}
+input#name::placeholder{color:#abc3b3;opacity:1}
+input#name:focus{border-color:var(--gold);box-shadow:0 0 0 4px #f4c47724}
+button,#confirmName,#firstButton,#secondButton,#thirdButton,#finalButton{display:inline-flex;align-items:center;justify-content:center;min-height:54px;max-width:100%;padding:12px 30px;border:0;border-radius:14px;background:var(--gold);color:#11271b;font:800 1rem/1.4 'DM Sans',sans-serif;font-style:normal;box-shadow:0 6px 0 #0003;transition:transform .2s,background .2s}
+button:hover:not(:disabled):not(.disabled){transform:translateY(-2px);background:#ffda99}
+button:disabled,.disabled{opacity:.5;cursor:not-allowed}
+.active-flicker{animation:none}
+#firstButton,#secondButton,#thirdButton{min-width:170px}
+#secondButton{background:var(--mint)}
+#thirdButton{background:#f7f4e9}
+#finalButton{width:min(100%,580px);padding:20px}
+#fullPhrase{margin:0;color:#11271b;font:800 clamp(1rem,2vw,1.3rem)/1.4 'DM Sans',sans-serif}
+.output{display:block;margin:15px auto 0;padding:0}
+.output b,#finalResult{display:inline-block;max-width:100%;overflow-wrap:anywhere;color:#fff4d9;font:700 clamp(1.15rem,2.5vw,1.7rem)/1.5 'Fraunces',Georgia,serif;font-style:normal}
+.output b:empty{display:none}
+.sparkle-background{padding:22px 12px;border-radius:16px;background:#061c15}
+.sparkle-background::before,.sparkle-background::after{pointer-events:none}
+.sparkle-background #finalResult{position:relative;z-index:1}
+footer{margin-top:70px;padding:48px 20px 58px;border-top:1px solid var(--line);background:#061811}
+footer h2{color:var(--gold)}
+footer p{max-width:640px}
+footer a{font-size:1rem}
+#create-canvas{width:min(100%,640px);padding:16px;border:1px solid #8be1af88;border-radius:14px;background:#8be1af15;font-size:1rem;font-weight:700}
+#create-canvas a{display:block}
+#download-link,#download-link a,#download-link sam{font-size:1rem}
+#canvas{width:min(100%,600px);border-radius:14px}
+#canvas:not([width]){display:none}
+.social-networks{display:flex;justify-content:center;gap:10px;max-width:480px}
+.social-networks li{width:auto;font-size:1.5rem}
+.social-networks a{display:inline-flex;min-width:48px;min-height:48px;align-items:center;justify-content:center}
+.fab,.far{padding:10px;color:var(--mint)}
+#refresh{padding:18px;border:1px solid var(--line);border-radius:16px;background:#103a29}
+#refresh b{color:var(--gold);background:transparent;font:700 1rem/1.5 'DM Sans',sans-serif}
+.glow-text{animation:none;text-shadow:none}
+#history-bg .question-marks{max-width:600px;margin:28px auto}
+#history-bg .l-what,#history-bg .l-who,#history-bg .l-where{width:min(calc(100% - 32px),850px);margin:18px auto;padding:clamp(20px,3vw,32px);border:1px solid var(--line);border-radius:22px;background:#12372a;text-align:left}
+#history-bg .l-what h2,#history-bg .l-who h2,#history-bg .l-where h2{display:flex;align-items:center;gap:10px;margin:0;color:var(--gold)}
+#history-bg .l-what h2::after,#history-bg .l-who h2::after,#history-bg .l-where h2::after{content:'+';margin-left:auto;font:400 1.5rem sans-serif}
+#history-bg .l-what p,#history-bg .l-who p,#history-bg .l-where p{max-width:72ch;text-align:left;font-size:1rem}
+#history-bg .l-where .sections{width:100%;padding:16px}
+#history-bg #first-irish{height:min(70vw,470px);background-size:contain}
+#history-bg #darby{background-size:contain}
+#history-bg #documentary{text-align:center}
+#history-bg .list a{font-size:1rem}
+body:has(.about-aj){background:radial-gradient(ellipse at 50% 0%,#22513b,#0b281e 40%,#071b16 85%) fixed!important}
+body:has(.about-aj) header{max-width:900px;margin:65px auto 30px;padding:0 20px}
+body:has(.about-aj) header p{max-width:640px}
+body:has(.about-aj) main{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;width:min(calc(100% - 32px),940px);margin:0 auto}
+.about-aj,.about-sam{display:block;padding:28px;border:1px solid var(--line);border-radius:22px;background:var(--panel)}
+.about-aj .custom-col-md-6,.about-sam .custom-col-md-6{flex:none;max-width:100%}
+.about-aj img,.about-sam img{display:block;width:min(100%,230px);aspect-ratio:1;object-fit:cover;margin:0 auto;border:4px solid var(--gold);border-radius:50%}
+.about-aj p,.about-sam p{color:var(--text);font-size:1.2rem;font-weight:700}
+.about-aj p a,.about-sam p a{display:inline-block;margin-left:6px;font-size:1rem}
+@media(max-width:700px){.irish-flag-navbar{width:calc(100% - 16px);margin-top:8px;border-radius:18px}.irish-flag-navbar .nav-section a{min-height:54px;padding:8px 3px;border-radius:12px}body>section:first-of-type{margin-top:42px}.sections,#step5{padding:22px 18px}body:has(.about-aj) main{grid-template-columns:1fr}.social-networks{max-width:100%}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
