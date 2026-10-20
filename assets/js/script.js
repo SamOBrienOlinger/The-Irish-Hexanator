@@ -120,7 +120,9 @@ async function drawOnMainCanvas(phrases) {
   const [shamrock, leprechaun] = await Promise.all([
     loadImage('assets/css/Images/green-shamrock-no-bg.png'),
     loadImage('assets/css/Images/angry-leprechaun-bg-free.png'),
-    document.fonts ? document.fonts.ready : Promise.resolve()
+    // Canvas-only fonts are not requested by document.fonts.ready alone.
+    // A blocked font service must not prevent an otherwise usable PNG.
+    document.fonts ? document.fonts.load('28px "Irish Grover"').catch(() => []) : Promise.resolve()
   ]);
   const scale = window.devicePixelRatio || 1;
   const width = 600;
@@ -181,12 +183,16 @@ canvasCreate.addEventListener('click', async (event) => {
 });
 document.querySelector('#download-link a').addEventListener('click', (event) => {
   event.preventDefault();
+  const control = event.currentTarget;
   const link = document.createElement('a');
   link.download = 'canvas-image.png';
   link.href = document.getElementById('canvas').toDataURL('image/png');
+  link.tabIndex = -1;
+  link.setAttribute('aria-hidden', 'true');
   document.body.appendChild(link);
   link.click();
   link.remove();
+  control.focus({ preventScroll: true });
 });
 // Social destinations remain in the HTML. Do not manufacture unhosted image URLs
 // or append cloned canvases; neither provided an actual sharing feature.
