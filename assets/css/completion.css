@@ -1,0 +1,80 @@
+/* Step 4 artwork. The homepage hero and other pages are intentionally untouched. */
+#step5 { scroll-margin-block: 20px; }
+#completion-heading { margin: 0 0 8px; color: var(--gold); }
+#completion-instructions { margin: 0 0 20px; font-size: 1rem; }
+.hex-reveal {
+  position: relative; isolation: isolate; overflow: hidden;
+  width: min(100%, 340px); min-height: 510px; margin: 0 auto 24px;
+  padding: 35px 36px 87px; border-radius: 8px;
+  display: flex; flex-direction: column; align-items: center;
+  background: #002014; box-shadow: 0 14px 36px #0006;
+}
+.hex-reveal-scene, .hex-reveal-aura, .hex-reveal-particles { position: absolute; inset: 0; pointer-events: none; z-index: -1; }
+.hex-reveal-scene {
+  background: #002014 url('../images/hex-reveal-frame.webp') center / 100% 100% no-repeat;
+}
+/* Live HTML text, not the sample name baked into the concept GIFs. */
+.hex-reveal-mascot {
+  display: block; width: 145px; height: 160px; max-width: 76%;
+  object-fit: contain; flex-shrink: 0; margin: 0 auto 14px;
+  filter: drop-shadow(0 0 16px #71dd5877);
+}
+.hex-reveal-copy { position: relative; width: 100%; margin: auto 0; }
+.hex-reveal-copy[hidden] { display: none; }
+.hex-reveal-copy span {
+  display: block; overflow-wrap: anywhere; text-wrap: balance;
+  font: 600 1.15rem/1.4 'Fraunces', Georgia, serif;
+  color: #fff7de; text-shadow: 0 2px 5px #00170e, 0 0 14px #00170e;
+}
+.hex-reveal-copy span + span { margin-top: 8px; }
+.hex-reveal-copy .hex-reveal-name { color: #ffe19a; font-size: 1.5rem; line-height: 1.22; margin-bottom: 12px; }
+.hex-reveal-copy span:last-child { color: #ffe19a; font-size: 1.25rem; }
+.hex-reveal .hex-final-output { width: 100%; margin: auto 0; }
+.hex-reveal .sparkle-background { padding: 0; background: transparent; border-radius: 0; overflow: visible; }
+.hex-reveal .sparkle-background::before, .hex-reveal .sparkle-background::after { display: none; }
+.hex-reveal #finalResult {
+  position: relative; display: block; margin: 0; color: #fff4cf;
+  font: 600 1.35rem/1.5 'Fraunces', Georgia, serif; text-wrap: balance;
+  text-shadow: 0 2px 5px #00170e, 0 0 14px #00170e; overflow-wrap: anywhere;
+}
+.hex-reveal #finalResult:focus { outline-offset: 6px; }
+.hex-reveal-aura { opacity: 0; background: radial-gradient(ellipse at 50% 25%, #6dff5359, transparent 52%); }
+.hex-reveal-particles { z-index: 2; }
+.hex-reveal-particles i {
+  position: absolute; left: var(--x); top: var(--y); width: 5px; height: 5px;
+  border-radius: 50%; background: #ffe9a7; opacity: 0;
+  box-shadow: 0 0 8px #f5ce69; pointer-events: none;
+}
+/* All decorative motion is finite (under 3.5 seconds), never a flashing loop. */
+@media (prefers-reduced-motion: no-preference) {
+  .hex-reveal.is-revealing { animation: hex-card-arrive 650ms cubic-bezier(.2,.7,.3,1) both; }
+  .hex-reveal.is-revealing .hex-reveal-aura { animation: hex-aura-bloom 2.8s ease-out both; }
+  .hex-reveal.is-revealing .hex-reveal-mascot { animation: hex-mascot-arrive 1.4s 100ms cubic-bezier(.2,.7,.3,1) both; }
+  .hex-reveal.is-revealing .hex-reveal-copy span { animation: hex-line-arrive 620ms ease-out both; }
+  .hex-reveal.is-revealing .hex-reveal-copy span:nth-child(1) { animation-delay: 350ms; }
+  .hex-reveal.is-revealing .hex-reveal-copy span:nth-child(2) { animation-delay: 600ms; }
+  .hex-reveal.is-revealing .hex-reveal-copy span:nth-child(3) { animation-delay: 850ms; }
+  .hex-reveal.is-revealing .hex-reveal-copy span:nth-child(4) { animation-delay: 1100ms; }
+  .hex-reveal.is-revealing .hex-reveal-particles i { animation: hex-spark-rise 1.8s var(--delay) ease-out both; }
+}
+@keyframes hex-card-arrive { from { opacity: 0; transform: translateY(14px) scale(.98); } to { opacity: 1; transform: none; } }
+@keyframes hex-mascot-arrive { 0% { opacity: 0; transform: translateY(12px) scale(.92); } 70% { opacity: 1; transform: translateY(-4px) scale(1.025); } 100% { opacity: 1; transform: none; } }
+@keyframes hex-line-arrive { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@keyframes hex-aura-bloom { 0%,100% { opacity: 0; transform: scale(.95); } 35% { opacity: .8; transform: scale(1.08); } }
+@keyframes hex-spark-rise { 0% { opacity: 0; transform: translate(0,16px) scale(.4); } 25% { opacity: .85; } 100% { opacity: 0; transform: translate(var(--drift),-85px) scale(.2); } }
+@media (max-width: 700px) {
+  .hex-reveal { width: min(100%,300px); min-height: 450px; padding: 30px 28px 74px; }
+  .hex-reveal-mascot { width: 125px; height: 138px; }
+  .hex-reveal-copy span { font-size: 1.05rem; }
+  .hex-reveal-copy .hex-reveal-name { font-size: 1.3rem; }
+  .hex-reveal-copy span:last-child { font-size: 1.1rem; }
+  .hex-reveal #finalResult { font-size: 1.18rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hex-reveal, .hex-reveal * { animation: none !important; transition: none !important; }
+}
+@media (forced-colors: active) {
+  .hex-reveal { border: 2px solid CanvasText; }
+  .hex-reveal-scene, .hex-reveal-aura, .hex-reveal-particles { display: none; }
+  .hex-reveal-copy span, .hex-reveal #finalResult { color: CanvasText; text-shadow: none; }
+}
