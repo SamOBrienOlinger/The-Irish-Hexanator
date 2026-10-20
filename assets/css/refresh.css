@@ -1,0 +1,131 @@
+/* Presentation refresh. Original artwork, phrase lists and application features are retained. */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Fraunces:wght@600;700&display=swap');
+:root{color-scheme:dark;--bg:#071b16;--panel:#12372a;--line:#355747;--text:#f7f4e9;--muted:#c8d9ce;--gold:#f4c477;--mint:#8be1af}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--bg)}
+body,body#history-bg,body.about-page{margin:0;height:auto;min-height:100vh;background:radial-gradient(ellipse at 50% 0%,#22513b,#0b281e 40%,#071b16 85%);background-attachment:scroll;color:var(--text);font:400 1rem/1.65 'DM Sans',system-ui,sans-serif;text-align:center}
+main{display:block;min-width:0}
+main:focus{outline:none}
+[hidden]{display:none!important}
+h1,h2,h3{font-family:'Fraunces',Georgia,serif;line-height:1.2;letter-spacing:-.025em;text-shadow:none;overflow-wrap:anywhere}
+h1{max-width:900px;margin:0 auto 18px;color:var(--text);font-size:clamp(2.6rem,6vw,5rem);text-wrap:balance}
+h2{color:var(--text);font-size:clamp(1.3rem,2.7vw,1.85rem)}
+p,footer p{margin:16px auto;color:var(--muted);font:400 clamp(1rem,1.6vw,1.13rem)/1.75 'DM Sans',system-ui,sans-serif;text-shadow:none;overflow-wrap:anywhere}
+a{color:var(--mint);font-size:inherit;text-underline-offset:.2em}
+a:hover{color:#d2ffe2}
+a:focus-visible,button:focus-visible,input:focus-visible,[tabindex]:focus-visible{outline:3px solid var(--gold);outline-offset:4px}
+.skip-link{position:fixed;top:12px;left:12px;transform:translateY(-200%);z-index:100;padding:12px 20px;border-radius:10px;background:var(--gold);color:#11271b;font-weight:700}
+.skip-link:focus{transform:none}
+.irish-flag-navbar{display:flex;gap:6px;width:min(calc(100% - 32px),1100px);margin:20px auto 0;padding:6px;border:1px solid var(--line);border-radius:100px;background:rgba(7,27,22,.88);box-shadow:0 10px 30px #0003}
+.irish-flag-navbar .nav-section{flex:1 1 0;height:auto;min-width:0;border-radius:100px;background:transparent}
+.irish-flag-navbar .nav-section a{display:flex;align-items:center;justify-content:center;min-height:50px;width:100%;padding:9px 12px;border-radius:100px;color:#ecf7ed;font:700 clamp(.8rem,1.4vw,1rem)/1.35 'DM Sans',sans-serif;text-decoration:none;transition:background .2s,color .2s;overflow-wrap:anywhere}
+.irish-flag-navbar .nav-section a:hover,.irish-flag-navbar .nav-section a[aria-current=page]{background:var(--gold);color:#102719}
+.irish-flag-navbar img{display:none}
+.hero{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);align-items:center;gap:35px;max-width:1100px;margin:42px auto 28px;padding:0 28px}
+.hero-copy{min-width:0;text-align:left}
+.hero h1{text-align:left;font-size:clamp(2.5rem,4.8vw,4.3rem);line-height:1.08}
+.hero .hero-kicker{display:inline-block;margin:0;color:var(--gold);font-size:.83rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;text-align:left}
+.hero .hero-instructions{color:var(--muted);font:400 1.05rem/1.6 'DM Sans',sans-serif;max-width:46ch;margin:16px 0 0;text-align:left}
+/* This is the existing leprechaun, not new or generated artwork. */
+#guide{width:100%;height:330px;max-width:760px;margin:0;background-image:url('Images/angry-leprechaun-bg-free.png');background-size:contain;background-position:center;background-repeat:no-repeat;filter:drop-shadow(0 16px 26px #0007);animation:none}
+.sections,#step5{width:min(calc(100% - 32px),760px);margin:20px auto;padding:clamp(22px,4vw,40px);border:1px solid var(--line);border-radius:22px;background:linear-gradient(145deg,#1b4935,#0d2d22);box-shadow:0 18px 50px #0004;scroll-margin-top:24px}
+.sections h2{max-width:640px;margin:0 auto 24px}
+.steps{color:var(--gold);font-family:'Fraunces',Georgia,serif;font-size:inherit;white-space:nowrap}
+.sections h2 span.steps img{width:24px;margin-right:8px}
+.field-label{display:block;margin-bottom:8px;color:var(--muted);font-size:.95rem;font-weight:600}
+input#name{display:block;width:min(100%,500px);min-height:58px;margin:0 auto 18px;padding:14px 18px;border:1px solid #91b9a2;border-radius:14px;background:#071b16;color:white;font:500 1.1rem 'DM Sans',sans-serif;text-align:center}
+input#name::placeholder{color:#abc3b3;opacity:1}
+input#name:focus{border-color:var(--gold);box-shadow:0 0 0 4px #f4c47724}
+input#name[aria-invalid=true]{border-color:#ffc4a5}
+.field-error{margin:0 auto 16px;color:#ffd5c0;font-size:1rem}
+button,#confirmName,#firstButton,#secondButton,#thirdButton,#finalButton{display:inline-flex;align-items:center;justify-content:center;min-height:54px;max-width:100%;padding:12px 30px;border:0;border-radius:14px;background:var(--gold);color:#11271b;font:800 1rem/1.4 'DM Sans',sans-serif;font-style:normal;box-shadow:0 6px 0 #0003;transition:transform .2s,background .2s}
+button:hover:not(:disabled):not(.disabled){transform:translateY(-2px);background:#ffda99}
+button:active:not(:disabled):not(.disabled){transform:translateY(1px)}
+button:disabled,.disabled{opacity:.5;cursor:not-allowed}
+.active-flicker,.glow-text{animation:none;text-shadow:none}
+#firstButton,#secondButton,#thirdButton{min-width:170px}
+#secondButton{background:var(--mint)}
+#thirdButton{background:#f7f4e9}
+#finalButton{width:min(100%,580px);padding:20px}
+#fullPhrase{margin:0;color:#11271b;font:800 clamp(1rem,2vw,1.3rem)/1.4 'DM Sans',sans-serif}
+.output{display:block;margin:15px auto 0;padding:0}
+.output b,#finalResult{display:inline-block;max-width:100%;overflow-wrap:anywhere;color:#fff4d9;font:700 clamp(1.15rem,2.5vw,1.7rem)/1.5 'Fraunces',Georgia,serif;font-style:normal}
+.output b:empty{display:none}
+.sparkle-background{padding:22px 12px;border-radius:16px;background:#061c15}
+.sparkle-background::before,.sparkle-background::after{pointer-events:none;animation-iteration-count:1}
+.sparkle-background #finalResult{position:relative;z-index:1;margin:0}
+footer{margin-top:70px;padding:48px 20px 58px;border-top:1px solid var(--line);background:#061811}
+footer h2{color:var(--gold)}
+footer p{max-width:640px}
+footer a{font-size:1rem}
+#create-canvas{width:min(100%,640px);padding:0;border:0;background:transparent;font-size:1rem}
+#createCanvasButton{width:100%;color:var(--mint);border:1px solid #8be1af88;background:#103525;box-shadow:none;gap:8px}
+#createCanvasButton:hover:not(:disabled){background:#1b4935}
+.canvas-container{margin:20px 0}
+#canvas{width:min(100%,600px);height:auto;border-radius:14px}
+#canvas:not([width]){display:none}
+#download-link{max-width:650px;font-size:1rem}
+#download-link a{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:12px 20px;border-radius:14px;background:var(--gold);color:#11271b;font-size:1rem;font-weight:700;text-decoration:none}
+.download-help{display:block;margin-top:10px;font-size:.9rem;color:var(--muted)}
+.social-networks{display:flex!important;justify-content:center;flex-wrap:wrap;gap:10px;max-width:640px;margin:20px auto;padding:0;list-style:none}
+.social-networks li{width:auto;font-size:1.5rem}
+.social-networks a{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-width:48px;min-height:48px;padding:10px 14px;border:1px solid var(--line);border-radius:12px;text-decoration:none;color:var(--mint)}
+.social-networks i{padding:0;font-size:1.25rem}
+.social-label{font:600 .9rem/1.3 'DM Sans',sans-serif}
+.fab,.far{padding:10px;color:var(--mint)}
+#refresh{max-width:650px;margin-top:24px;padding:18px;border:1px solid var(--line);border-radius:16px;background:#103a29}
+#refresh b{color:var(--gold);background:transparent;font:700 1rem/1.5 'DM Sans',sans-serif}
+#history-bg main>h1{margin:45px auto 20px;padding:0 16px;font-size:clamp(2.2rem,5vw,3.7rem)}
+#history-bg .question-marks{max-width:350px;margin:12px auto}
+#history-bg .question-mark img{width:30px;animation:none}
+#history{height:250px;width:min(calc(100% - 32px),760px);margin:20px auto;background-image:url('Images/happy-leps.png');background-size:contain;background-position:center;background-repeat:no-repeat;animation:none}
+#history-bg .l-what,#history-bg .l-who,#history-bg .l-where{width:min(calc(100% - 32px),850px);margin:18px auto;padding:0;border:1px solid var(--line);border-radius:22px;background:#12372a;text-align:left;cursor:default}
+#history-bg .l-what h2,#history-bg .l-who h2,#history-bg .l-where h2{display:block;margin:0}
+#history-bg .accordion-trigger{display:flex;justify-content:space-between;gap:18px;width:100%;min-height:72px;padding:22px 26px;border-radius:21px;background:transparent;color:var(--gold);text-align:left;font:600 clamp(1.1rem,2.4vw,1.65rem)/1.4 'Fraunces',Georgia,serif;box-shadow:none;transform:none}
+#history-bg .accordion-trigger:hover{background:#1b4935;transform:none}
+.accordion-title{min-width:0}
+.accordion-title img{width:28px}
+.accordion-toggle{flex:0 0 22px;text-align:center}
+.accordion-toggle::before{content:'+'}
+[aria-expanded=true] .accordion-toggle::before{content:'−'}
+.what-drop,.who-drop,.where-drop{padding:0 26px 22px}
+#history-bg .l-what p,#history-bg .l-who p,#history-bg .l-where p{max-width:72ch;text-align:left;font-size:1rem}
+#history-bg .l-where .sections{width:100%;padding:16px}
+#history-bg #first-irish{animation:none;height:400px;background-size:contain;background-position:center top;padding-top:310px}
+#history-bg #darby{background-size:contain}
+#history-bg #documentary{text-align:center;padding:12px;border-radius:12px;background:#071b16ed;color:var(--mint)}
+#history-bg .list{display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
+#history-bg .list li{max-width:100%}
+#history-bg .list a{font-size:1rem;overflow-wrap:anywhere}
+.about-page header{max-width:900px;margin:65px auto 30px;padding:0 20px}
+.about-page header h1{font-size:clamp(2rem,6vw,4.5rem)}
+.about-page header p{max-width:640px}
+.about-page main{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;width:min(calc(100% - 32px),940px);margin:0 auto}
+.about-aj,.about-sam{display:block;padding:28px;border:1px solid var(--line);border-radius:22px;background:var(--panel);min-width:0}
+.about-aj .custom-col-md-6,.about-sam .custom-col-md-6{flex:none;max-width:100%}
+.about-aj img,.about-sam img{display:block;width:min(100%,230px);height:auto;aspect-ratio:1;object-fit:cover;margin:0 auto;border:4px solid var(--gold);border-radius:50%}
+.about-aj p,.about-sam p{color:var(--text);font-size:1.2rem;font-weight:700}
+.about-page main p a{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:44px;margin:10px 4px 0;padding:5px 9px;border:1px solid var(--line);border-radius:10px;text-decoration:none;font-size:1rem}
+.about-page main p a i{padding:0}
+.error-page{max-width:850px;min-height:45vh;padding:70px 20px 30px;margin:auto}
+@media(max-width:700px){
+.irish-flag-navbar{width:calc(100% - 16px);margin-top:8px;border-radius:18px}
+.irish-flag-navbar .nav-section a{min-height:54px;padding:8px 3px;border-radius:12px;font-size:.8rem}
+.hero{grid-template-columns:1fr;gap:12px;margin:30px auto 24px;padding:0 20px}
+.hero-copy,.hero h1,.hero .hero-kicker,.hero .hero-instructions{text-align:center}
+.hero h1{font-size:clamp(2.3rem,8vw,3rem)}
+.hero .hero-instructions{margin:14px auto 0;font-size:1rem}
+#guide{height:190px}
+.sections,#step5{padding:22px 18px}
+.social-networks{gap:8px;max-width:100%}
+.social-networks li{flex:0 1 calc(50% - 4px)}
+.social-networks a{display:flex;width:100%;padding:12px 9px}
+#history{height:190px}
+#history-bg .accordion-trigger{gap:10px;padding:18px 16px}
+.what-drop,.who-drop,.where-drop{padding:0 16px 18px}
+#history-bg #first-irish{height:auto;min-height:320px;padding-top:230px;background-size:auto 245px}
+.about-page main{grid-template-columns:1fr}
+footer{margin-top:40px;padding:32px 16px}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+@media(forced-colors:active){button,input,.irish-flag-navbar,.sections,#step5,.social-networks a{border:1px solid ButtonText}a:focus-visible,button:focus-visible,input:focus-visible{outline-color:Highlight}}
