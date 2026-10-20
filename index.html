@@ -1,195 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-   <meta charset="utf-8" />
-   <meta name="viewport" content="width=device-width" />
-   <title>Irish Hex on Your Nemesis</title>
-   <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
-   <meta name="description"
-      content="AN Irish Hex is a website all about having fun by randomly creating a humorous 'curse' on any name inserted. Designed and implemented by Sam O'Brien-Olinger" />
-   <meta name="keywords"
-      content="History, Irish, Ireland, Leprechaun, Culture, Folklore, Margic, Dark Humour, comedic, supernatural, having fun" />
-    <link rel="stylesheet" href="assets/css/refresh.css">\n</head>
-
-<body>
-
-   <header>
-      <nav class="irish-flag-navbar" aria-label="Main navigation">
-         <div class="nav-section green">
-            <a href="index.html" aria-current="page">
-               <div><img src="assets/css/Images/bg-free-shamrock.png" alt="Curse"></div>
-               <div><span>Curse Your Nemesis</span></div>
-               <div><img src="assets/css/Images/bg-free-shamrock.png" alt="Curse"></div>
-            </a>
-         </div>
-         <div class="nav-section white">
-            <a href="history.html">
-               <div><img src="assets/css/Images/bg-free-shamrock.png" alt="History of Irish Magic"></div>
-               <div><span>Mysteries & Myths</span></div>
-               <div><img src="assets/css/Images/bg-free-shamrock.png" alt="History"></div>
-            </a>
-         </div>
-         <div class="nav-section orange">
-            <a href="about.html">
-               <div><img src="assets/css/Images/bg-free-shamrock.png" alt="About the team"></div>
-               <div><span>The Shamrockeroos</span></div>
-               <div><img src="assets/css/Images/bg-free-shamrock.png" alt="About"></div>
-            </a>
-         </div>
-      </nav>
-
-   </header>
-
-   <section>
-      <a id="top"></a>
-      <h1 aria-label="Welcome to the Irish Hexanator!">
-         Welcome to the Irish Hexanator!
-      </h1>
-      <div>
-         <p aria-label="Hex Your Nemesis Right Here & Now">
-            Hex Your Nemesis Right Here & Now
-         </p>
-      </div>
-      <div id="guide" aria-label="image of scary leprechaun casting a magic spell"></div>
-      <div>
-         <h3 aria-label="Complete the following steps to cast your 'curse' on your Biggest Nastiest Nemesis!">
-            Complete the following steps to cast your 'Curse' on your Biggest Nastiest Nemesis!
-         </h3>
-      </div>
-   </section>
-   <section class="sections">
-      <div id="error">
-         <h2 aria-label="Insert your Nemesis' name below">
-            <span class="steps"><img src="assets/css/Images/green-shamrock-no-bg.png" alt="shamrock bullet point">Step
-               1: </span> Who deserves this MAGICAL VENGEANCE?! Insert their name NOW
-         </h2>
-         <input id="name" name="name" type="text" placeholder="Who is your Nemesis?"
-            aria-label="Insert your Nemesis' name below" />
-      </div>
-      <button id="confirmName" class="button" aria-label="Confirm Nemesis Name">Confirm My Victim</button>
-   </section>
-   <section id="step2" class="sections" style="display: none">
-      <div>
-         <h2>
-            <span class="steps"><img src="assets/css/Images/green-shamrock-no-bg.png" alt="shamrock bullet point">Step
-               2: </span> Click Here to start your Hex!
-         </h2>
-      </div>
-      <div>
-         <button class="button curse-button disabled active-flicker" data-index="1" id="firstButton"
-            aria-label="Start your Hex!">
-            Curse!
-         </button>
-      </div>
-      <div>
-         <output class="output">
-            <b id="firstResult"></b>
-         </output>
-      </div>
-   </section>
-   <section id="step3" class="sections" style="display: none">
-      <div>
-         <h2>
-            <span class="steps"><img src="assets/css/Images/green-shamrock-no-bg.png" alt="shamrock bullet point">Step
-               3: </span> Click Here to get the middle of your Hex!
-         </h2>
-      </div>
-      <div>
-         <button class="button curse-button disabled active-flicker" data-index="2" id="secondButton"
-            aria-label="The middle of your Hex!">
-            Curse!
-         </button>
-      </div>
-      <div>
-         <output class="output" id="secondOutput">
-            <b id="secondResult"></b>
-         </output>
-      </div>
-   </section>
-   <section id="step4" class="sections" style="display: none">
-      <div>
-         <h2>
-            <span class="steps"><img src="assets/css/Images/green-shamrock-no-bg.png" alt="shamrock bullet point">Step
-               4: </span> Click Here to guarantee you cast the Hex
-         </h2>
-      </div>
-      <div>
-         <button class="button curse-button disabled active-flicker" data-index="3" id="thirdButton"
-            aria-label="The last part of your Hex">
-            Curse!
-         </button>
-      </div>
-      <div>
-         <output class="output" id="thirdOutput">
-            <b id="thirdResult"></b>
-         </output>
-      </div>
-   </section>
-   <section id="step5" style="display: none">
-      <div>
-         <div>
-            <button id="finalButton" class="disabled active-flicker" aria-label="Cast your Hex">
-               <b id="fullPhrase">
-                  Click Here - "Your Hex is Ready to be Cast"</b>
-            </button>
-         </div>
-         <output class="output">
-            <div class="sparkle-background" style="display: none">
-               <b id="finalResult"></b>
-            </div>
-         </output>
-      </div>
-   </section>
-   <footer>
-      <div id="create-canvas" style="display: none">
-         <a aria-label="Create a shareable image from the hex">
-            <i class="fas fa-magic"></i> Click Here to transform your hex into a shareable image </a>
-      </div>
-      <div class="canvas-container">
-         <canvas id="canvas"></canvas>
-      </div>
-
-      <div id="download-link" style="display: none"><a href="#" aria-label="Download the image for sharing"
-            class="glow-text"><i class="fa fa-download"></i> Click here to download the image to share at your leisure.
-         </a>
-         <br>
-         <sam>Alternatively, copy the image for sharing.</sam>
-      </div>
-      <div id="green-arrow"></div>
-      <h2>Social Media Shenanigans</h2>
-      <ul class="social-networks">
-         <li>
-            <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Use facebook to share your hex"><i
-                  class="fab fa-facebook"></i></a>
-         </li>
-         <li>
-            <a href="https://twitter.com" target="_blank" rel="noopener" aria-label="Use twitter to share your hex"><i
-                  class="fab fa-twitter-square"></i></a>
-         </li>
-         <li>
-            <a href="https://instagram.com" target="_blank" rel="noopener"
-               aria-label="Use instagram to share your hex"><i class="fab fa-instagram"></i></a>
-         </li>
-         <li>
-            <a href="#" target="_blank" rel="noopener" aria-label="Use whatsapp to share your hex"><i
-                  class="fab fa-whatsapp"></i></i></a>
-         </li>
-      </ul>
-      <p aria-label="Post your Hex and Tag your Favourite Nemesis!">
-         Just for the craic, Share your Hex and Tag your Favourite Nemesis!
-      </p>
-      <div>
-         <a href="#top">
-            <div id="refresh" aria-label="Back to the Top and create a new Hex" style="display: none">
-               <b class="glow-text">There's still plenty of magic available. <br>Click here to hex that eejit again, or
-                  choose a new victim...</b>
-            </div>
-         </a>
-      </div>
-      <script src="https://kit.fontawesome.com/c7dbda0798.js" crossorigin="anonymous"></script>
-   </footer>
-   <script src="assets/js/script.js"></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Irish Hex on Your Nemesis</title>
+<link href="assets/css/style.css" rel="stylesheet" type="text/css"/>
+<meta content="AN Irish Hex is a website all about having fun by randomly creating a humorous 'curse' on any name inserted. Designed and implemented by Sam O'Brien-Olinger" name="description"/>
+<meta content="History, Irish, Ireland, Leprechaun, Culture, Folklore, Magic, Dark Humour, comedic, supernatural, having fun" name="keywords"/>
+<link href="assets/css/refresh.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
+</head>
+<body class="home-page">
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<header>
+<nav aria-label="Main navigation" class="irish-flag-navbar">
+<div class="nav-section green"><a aria-current="page" href="index.html">Curse Your Nemesis</a></div>
+<div class="nav-section white"><a href="history.html">Mysteries &amp; Myths</a></div>
+<div class="nav-section orange"><a href="about.html">The Shamrockeroos</a></div>
+</nav>
+</header>
+<main id="main-content" tabindex="-1">
+<section aria-labelledby="page-heading" class="hero">
+<div class="hero-copy">
+<a id="top"></a>
+<h1 id="page-heading">Welcome to the Irish Hexanator!</h1>
+<p class="hero-kicker">Hex Your Nemesis Right Here &amp; Now</p>
+<p class="hero-instructions">Complete the following steps to cast your 'Curse' on your Biggest Nastiest Nemesis!</p>
+</div>
+<div aria-label="The original mischievous leprechaun casting a magic spell" id="guide" role="img"></div>
+</section>
+<section class="sections" id="step1">
+<div id="error">
+<h2><span class="steps"><img alt="" src="assets/css/Images/green-shamrock-no-bg.png"/>Step 1: </span> Who deserves this MAGICAL VENGEANCE?! Insert their name NOW</h2>
+<label class="field-label" for="name">Your nemesis's name</label>
+<input aria-describedby="name-error" autocomplete="off" id="name" name="name" placeholder="Who is your Nemesis?" type="text"/>
+<p class="field-error" hidden id="name-error" role="alert"></p>
+</div>
+<button aria-label="Confirm Nemesis Name" class="button" id="confirmName" type="button">Confirm My Victim</button>
+</section>
+<section class="sections" id="step2" style="display: none">
+<h2><span class="steps"><img alt="" src="assets/css/Images/green-shamrock-no-bg.png"/>Step 2: </span> Click Here to start your Hex!</h2>
+<button aria-label="Start your Hex!" class="button curse-button disabled active-flicker" data-index="1" disabled id="firstButton" type="button">Curse!</button>
+<output aria-atomic="true" aria-live="polite" class="output"><b id="firstResult"></b></output>
+</section>
+<section class="sections" id="step3" style="display: none">
+<h2><span class="steps"><img alt="" src="assets/css/Images/green-shamrock-no-bg.png"/>Step 3: </span> Click Here to get the middle of your Hex!</h2>
+<button aria-label="The middle of your Hex!" class="button curse-button disabled active-flicker" data-index="2" disabled id="secondButton" type="button">Curse!</button>
+<output aria-atomic="true" aria-live="polite" class="output" id="secondOutput"><b id="secondResult"></b></output>
+</section>
+<section class="sections" id="step4" style="display: none">
+<h2><span class="steps"><img alt="" src="assets/css/Images/green-shamrock-no-bg.png"/>Step 4: </span> Click Here to guarantee you cast the Hex</h2>
+<button aria-label="The last part of your Hex" class="button curse-button disabled active-flicker" data-index="3" disabled id="thirdButton" type="button">Curse!</button>
+<output aria-atomic="true" aria-live="polite" class="output" id="thirdOutput"><b id="thirdResult"></b></output>
+</section>
+<section id="step5" style="display: none">
+<button aria-label="Cast your Hex" class="disabled active-flicker" disabled id="finalButton" type="button"><b id="fullPhrase">Click Here - "Your Hex is Ready to be Cast"</b></button>
+<div aria-atomic="true" aria-live="polite" class="output" role="status"><div class="sparkle-background" style="display: none"><b id="finalResult"></b></div></div>
+</section>
+</main>
+<footer>
+<div id="create-canvas" style="display: none">
+<button aria-label="Create a shareable image from the hex" class="secondary-button" id="createCanvasButton" type="button"><i aria-hidden="true" class="fas fa-magic"></i> Click Here to transform your hex into a shareable image</button>
+</div>
+<div class="canvas-container"><canvas aria-label="Your generated hex image" id="canvas" role="img">Your hex is shown above. Use the download link to save the generated image.</canvas></div>
+<div id="download-link" style="display: none">
+<a aria-label="Download the image for sharing" class="glow-text" href="#"><i aria-hidden="true" class="fa fa-download"></i> Click here to download the image to share at your leisure.</a>
+<span class="download-help">Alternatively, copy the image for sharing.</span>
+</div>
+<div id="green-arrow"></div>
+<h2>Social Media Shenanigans</h2>
+<ul class="social-networks">
+<li><a aria-label="Use facebook to share your hex" href="https://facebook.com" rel="noopener" target="_blank"><i aria-hidden="true" class="fab fa-facebook"></i><span class="social-label">Facebook</span></a></li>
+<li><a aria-label="Use twitter to share your hex" href="https://twitter.com" rel="noopener" target="_blank"><i aria-hidden="true" class="fab fa-twitter-square"></i><span class="social-label">Twitter</span></a></li>
+<li><a aria-label="Use instagram to share your hex" href="https://instagram.com" rel="noopener" target="_blank"><i aria-hidden="true" class="fab fa-instagram"></i><span class="social-label">Instagram</span></a></li>
+<li><a aria-label="Use whatsapp to share your hex" href="#" rel="noopener" target="_blank"><i aria-hidden="true" class="fab fa-whatsapp"></i><span class="social-label">WhatsApp</span></a></li>
+</ul>
+<p>Just for the craic, Share your Hex and Tag your Favourite Nemesis!</p>
+<button aria-label="Back to the Top and create a new Hex" id="refresh" style="display: none" type="button"><b class="glow-text">There's still plenty of magic available. <br/>Click here to hex that eejit again, or choose a new victim...</b></button>
+</footer>
+<script src="assets/js/script.js"></script>
 </body>
-
 </html>

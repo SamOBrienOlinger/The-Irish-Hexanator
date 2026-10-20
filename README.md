@@ -8,9 +8,9 @@ A collaborative frontend project that creates playful, fictional Irish hexes fro
 
 ## What you can explore
 
-- A name-driven, three-part generator.
-- An About page introducing the project team.
-- Themed artwork and a custom 404 page.
+- The original name-driven, three-part generator, final hex, shareable PNG image and restart flow.
+- Expandable Mysteries & Myths articles and an About page introducing the project team.
+- Original themed artwork, including the unchanged leprechaun hero, and a custom 404 page.
 
 ## Getting started
 
@@ -22,20 +22,32 @@ cd The-Irish-Hexanator
 python3 -m http.server 8000 --bind 127.0.0.1
 ```
 
-Open [localhost:8000](http://localhost:8000). Serve the repository over HTTP so module imports, relative assets and page links resolve correctly.
+Open [localhost:8000](http://localhost:8000). Serve the repository over HTTP so relative assets and page links resolve correctly.
 
 ## Repository guide
 
 | Path | Purpose |
 | --- | --- |
 | [index.html](index.html) | Primary browser entry point |
-| [assets/](assets/) | Project styles, scripts, data and imagery |
+| [assets/](assets/) | Project styles, scripts and original imagery |
+| [assets/css/refresh.css](assets/css/refresh.css) | Shared responsive visual system |
+| [tests/ui_regression.py](tests/ui_regression.py) | Browser and feature-parity regression suite |
 
 ## Checks and review
 
-No automated application test command is configured in this snapshot.
+Test dependencies are development-only. They are not loaded by the website.
 
-For a manual review, follow the main user journey, check keyboard navigation and narrow-screen layouts, and inspect the browser console for missing assets or failed requests.
+```bash
+python -m pip install playwright==1.63.0
+python -m playwright install --with-deps chromium firefox webkit
+python tests/ui_regression.py
+```
+
+The test script starts its own local server on port 8000. Stop any existing server on that port first. It covers all four pages at 320, 390, 768 and 1440 CSS pixels in Chromium, Firefox and WebKit, the complete hex-generation and PNG-download journey, restart, keyboard-operated history disclosures, local resource errors and horizontal overflow. It also compares the original hero file and the three phrase lists against the pre-refresh commit.
+
+GitHub Actions runs the same suite on pull requests and main-branch updates. Reports, screenshots and the tested source snapshot are saved in the `ui-regression-evidence` artifact for seven days. Inspect the actual workflow result rather than assuming every future commit passes.
+
+Automated browser checks do not replace physical-device testing, a screen-reader review or a full accessibility audit. Existing external social-link destinations are retained; this refresh does not add direct posting or hosted image-sharing infrastructure. The pre-existing WhatsApp `#` destination remains a placeholder.
 
 ## Deployment
 
