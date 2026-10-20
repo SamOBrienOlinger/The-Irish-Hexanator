@@ -91,7 +91,10 @@
       return { size, color: i === 0 || i === 3 ? '#ffe399' : '#fff8e7', lines: wrapText(ctx, text, 780) };
     });
     const textHeight = rows.reduce((sum, row) => sum + row.lines.length * row.size * 1.3 + 26, 0);
-    const height = Math.max(1662, Math.ceil(600 + textHeight + 300));
+    // Keep even a long name above the frame's lower medallions and brand.
+    const contentTop = 570;
+    const contentBottom = 0.74;
+    const height = Math.max(1662, Math.ceil((contentTop + textHeight + 40) / contentBottom));
     canvas.width = width;
     canvas.height = height;
     ctx.fillStyle = '#002014';
@@ -106,7 +109,7 @@
     ctx.drawImage(mascot, (width - artWidth) / 2, 90, artWidth, artHeight);
     ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
     ctx.shadowColor = '#00140e'; ctx.shadowBlur = 12; ctx.shadowOffsetY = 3;
-    let y = 570 + Math.max(0, (height - 870 - textHeight) / 2);
+    let y = contentTop + Math.max(0, (height * contentBottom - contentTop - textHeight) / 2);
     for (const row of rows) {
       ctx.font = `${row.size}px "Irish Grover", Georgia, serif`;
       ctx.fillStyle = row.color;
