@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 416 508" width="416" height="508" role="img" aria-labelledby="erd-title erd-desc"><title id="erd-title">Irish Hexanator phrases and share image</title><desc id="erd-desc">Each hex combines a name and three phrase slots. Each slot offers phrase options. A completed hex can be rendered as a PNG.</desc><metadata data-format="mermaid">erDiagram
+    accTitle: Irish Hexanator phrases and share image
+    accDescr: Each hex combines a name and three phrase slots. Each slot offers phrase options. A completed hex can be rendered as a PNG.
+    Hex ||--|{ "Phrase Slot" : contains
+    "Phrase Slot" ||--|{ "Phrase Option" : offers
+    Hex ||--o| "Share Image" : "rendered as"
+
+    Hex {
+        string name
+        string finalText
+    }
+    "Phrase Slot" {
+        number position
+        string selection
+    }
+    "Phrase Option" {
+        string text
+    }
+    "Share Image" {
+        string format "PNG"
+    }</metadata><style>:root {
+  --panel:#f7fafc; --border:#c7d8e4; --heading:#14354b; --accent:#128276;
+  --card:#174b62; --card-title:#fff; --text:#183448; --muted:#486278;
+  --row:#fff; --stripe:#edf5f9; --rule:#9ab7c9; --line:#486980;
+  --label-bg:#e2f3ee; --label-text:#195649;
+}
+@media (prefers-color-scheme:dark) {
+  :root {
+    --panel:#101c2a; --border:#3c566c; --heading:#eaf5fe; --accent:#53c7b2;
+    --card:#25526b; --card-title:#fff; --text:#e0edf6; --muted:#b4cadd;
+    --row:#192b3c; --stripe:#1e3448; --rule:#52738a; --line:#a3becf;
+    --label-bg:#1b3c41; --label-text:#c3f4e8;
+  }
+}
+text { font-family:Arial, Helvetica, sans-serif; }
+.panel { fill:var(--panel); stroke:var(--border); }
+.accent { fill:var(--accent); }
+.graphic-title { fill:var(--heading); font-weight:700; font-size:16px; }
+.entityBox { fill:var(--card); stroke:var(--rule); }
+.entity-heading { fill:var(--card-title); font-size:16px; font-weight:700; text-anchor:middle; dominant-baseline:middle; }
+.attributeBoxOdd { fill:var(--row); stroke:var(--rule); stroke-width:.8; }
+.attributeBoxEven { fill:var(--stripe); stroke:var(--rule); stroke-width:.8; }
+.attribute-text { fill:var(--text); font-size:13.6px; dominant-baseline:middle; }
+.attribute-type, .attribute-comment { fill:var(--muted); }
+.attribute-key { fill:var(--label-text); font-weight:700; }
+.relationshipLine { fill:none; stroke:var(--line); stroke-width:1.25; }
+.relationshipLabel { fill:var(--label-text); font-size:14px; font-weight:600; text-anchor:middle; dominant-baseline:middle; }
+.relationshipLabelBox { fill:var(--label-bg); }
+marker path { stroke:var(--line); fill:none; }
+marker circle { stroke:var(--line); fill:var(--panel); }</style><defs><marker orient="auto" markerHeight="18" markerWidth="18" refY="9" refX="0" id="ONLY_ONE_START" markerUnits="userSpaceOnUse"><path d="M9,0 L9,18 M15,0 L15,18" fill="none" stroke="gray"/></marker><marker orient="auto" markerHeight="18" markerWidth="30" refY="9" refX="30" id="ZERO_OR_ONE_END" markerUnits="userSpaceOnUse"><circle r="6" cy="9" cx="9" fill="white" stroke="gray"/><path d="M21,0 L21,18" fill="none" stroke="gray"/></marker><marker orient="auto" markerHeight="36" markerWidth="45" refY="18" refX="27" id="ONE_OR_MORE_END" markerUnits="userSpaceOnUse"><path d="M3,9 L3,27 M9,18 Q27,0 45,18 Q27,36 9,18" fill="none" stroke="gray"/></marker></defs><rect class="panel" x=".5" y=".5" width="415" height="507" rx="14"/><rect class="accent" x="22" y="18" width="26" height="3" rx="1.5"/><text class="graphic-title" x="22" y="40" aria-hidden="true"><tspan x="22" y="40">Irish Hexanator phrases and share image</tspan></text><g transform="translate(7.31 49)"><path marker-start="url(#ONLY_ONE_START)" marker-end="url(#ONE_OR_MORE_END)" d="M150.685,99.016L140.095,107.349C129.504,115.682,108.322,132.349,97.731,149.016C87.141,165.682,87.141,182.349,87.141,190.682L87.141,199.016" class="er relationshipLine"/><path marker-start="url(#ONLY_ONE_START)" marker-end="url(#ONE_OR_MORE_END)" d="M87.141,278.031L87.141,286.365C87.141,294.698,87.141,311.365,87.141,328.031C87.141,344.698,87.141,361.365,87.141,369.698L87.141,378.031" class="er relationshipLine"/><path marker-start="url(#ONLY_ONE_START)" marker-end="url(#ZERO_OR_ONE_END)" d="M251.106,99.016L261.697,107.349C272.288,115.682,293.469,132.349,304.06,151.072C314.651,169.796,314.651,190.576,314.651,200.967L314.651,211.357" class="er relationshipLine"/><g transform="translate(146.89575386047363,20 )"><rect height="79.015625" width="108" y="0" x="0" class="er entityBox"/><text transform="translate(54,13.841145833333332)" y="0" x="0" class="entity-heading">Hex</text><rect height="25.666666666666664" width="45.579689025878906" y="27.682291666666664" x="0" class="er attributeBoxOdd"/><text transform="translate(5.333333333333333,40.515625)" y="0" x="0" class="attribute-text attribute-type">string</text><rect height="25.666666666666664" width="62.420310974121094" y="27.682291666666664" x="45.579689025878906" class="er attributeBoxOdd"/><text transform="translate(50.91302235921224,40.515625)" y="0" x="0" class="attribute-text">name</text><rect height="25.666666666666664" width="45.579689025878906" y="53.34895833333333" x="0" class="er attributeBoxEven"/><text transform="translate(5.333333333333333,66.18229166666666)" y="0" x="0" class="attribute-text attribute-type">string</text><rect height="25.666666666666664" width="62.420310974121094" y="53.34895833333333" x="45.579689025878906" class="er attributeBoxEven"/><text transform="translate(50.91302235921224,66.18229166666666)" y="0" x="0" class="attribute-text">finalText</text></g><g transform="translate(26.363590240478516,199.015625 )"><rect height="79.015625" width="121.55406697591145" y="0" x="0" class="er entityBox"/><text transform="translate(60.77703348795573,13.841145833333332)" y="0" x="0" class="entity-heading">Phrase Slot</text><rect height="25.666666666666664" width="57.23115030924479" y="27.682291666666664" x="0" class="er attributeBoxOdd"/><text transform="translate(5.333333333333333,40.515625)" y="0" x="0" class="attribute-text attribute-type">number</text><rect height="25.666666666666664" width="64.32291666666667" y="27.682291666666664" x="57.23115030924479" class="er attributeBoxOdd"/><text transform="translate(62.564483642578125,40.515625)" y="0" x="0" class="attribute-text">position</text><rect height="25.666666666666664" width="57.23115030924479" y="53.34895833333333" x="0" class="er attributeBoxEven"/><text transform="translate(5.333333333333333,66.18229166666666)" y="0" x="0" class="attribute-text attribute-type">string</text><rect height="25.666666666666664" width="64.32291666666667" y="53.34895833333333" x="57.23115030924479" class="er attributeBoxEven"/><text transform="translate(62.564483642578125,66.18229166666666)" y="0" x="0" class="attribute-text">selection</text></g><g transform="translate(20,378.03125 )"><rect height="54.33333333333333" width="134.28125" y="0" x="0" class="er entityBox"/><text transform="translate(67.140625,14.333333333333332)" y="0" x="0" class="entity-heading">Phrase Option</text><rect height="25.666666666666664" width="72.69869995117188" y="28.666666666666664" x="0" class="er attributeBoxOdd"/><text transform="translate(5.333333333333333,41.5)" y="0" x="0" class="attribute-text attribute-type">string</text><rect height="25.666666666666664" width="61.582550048828125" y="28.666666666666664" x="72.69869995117188" class="er attributeBoxOdd"/><text transform="translate(78.0320332845052,41.5)" y="0" x="0" class="attribute-text">text</text></g><g transform="translate(247.91765975952148,211.3567714691162 )"><rect height="54.33333333333333" width="133.46644592285156" y="0" x="0" class="er entityBox"/><text transform="translate(66.73322296142578,14.333333333333332)" y="0" x="0" class="entity-heading">Share Image</text><rect height="25.666666666666664" width="43.916666666666664" y="28.666666666666664" x="0" class="er attributeBoxOdd"/><text transform="translate(5.333333333333333,41.5)" y="0" x="0" class="attribute-text attribute-type">string</text><rect height="25.666666666666664" width="49.41436258951823" y="28.666666666666664" x="43.916666666666664" class="er attributeBoxOdd"/><text transform="translate(49.25,41.5)" y="0" x="0" class="attribute-text">format</text><rect height="25.666666666666664" width="40.135416666666664" y="28.666666666666664" x="93.33102925618489" class="er attributeBoxOdd"/><text transform="translate(98.66436258951822,41.5)" y="0" x="0" class="attribute-text attribute-comment">PNG</text></g><rect height="17.015625" width="69.59" y="131.97900390625" x="69.21" class="er relationshipLabelBox" rx="6"/><text y="140.48681640625" x="104.00450897216797" class="er relationshipLabel">contains</text><rect height="17.015625" width="49.73" y="319.523193359375" x="62.27" class="er relationshipLabelBox" rx="6"/><text y="328.031005859375" x="87.14099884033203" class="er relationshipLabel">offers</text><rect height="17.015625" width="95.39" y="137.16970825195312" x="253" class="er relationshipLabelBox" rx="6"/><text y="145.67752075195312" x="300.69122314453125" class="er relationshipLabel">rendered as</text></g></svg>

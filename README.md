@@ -16,29 +16,7 @@ A collaborative frontend project that creates playful, fictional Irish hexes fro
 
 The generator combines an entered name with three ordered phrase slots. Each slot draws from its own list. The completed text can be rendered into a shareable PNG in the browser. [Generator and PNG export](assets/js/script.js) · [Completion view](assets/js/completion.js)
 
-```mermaid
-erDiagram
-    accTitle: Irish Hexanator phrases and share image
-    accDescr: Each hex combines a name and three phrase slots. Each slot offers phrase options. A completed hex can be rendered as a PNG.
-    Hex ||--|{ "Phrase Slot" : contains
-    "Phrase Slot" ||--|{ "Phrase Option" : offers
-    Hex ||--o| "Share Image" : "rendered as"
-
-    Hex {
-        string name
-        string finalText
-    }
-    "Phrase Slot" {
-        number position
-        string selection
-    }
-    "Phrase Option" {
-        string text
-    }
-    "Share Image" {
-        string format "PNG"
-    }
-```
+[![Each hex combines a name and three phrase slots. Each slot offers phrase options. A completed hex can be rendered as a PNG.](docs/diagrams/irish-hexanator-phrases-and-share-image.svg)](docs/diagrams/irish-hexanator-phrases-and-share-image.svg)
 
 ## Getting started
 
